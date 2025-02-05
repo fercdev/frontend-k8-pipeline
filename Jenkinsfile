@@ -74,7 +74,7 @@ pipeline {
             }
             steps {
                 withKubeConfig([credentialsId: 'minikube-kubeconfig']) {
-                    sh "kubectl set image deployment/$KUBE_DEPLOYMENT_NAME mi-app=$DOCKER_REPO:latest"
+                    sh "kubectl set image deployment/$KUBE_DEPLOYMENT_NAME mi-web-front=$DOCKER_REPO:latest"
                 }
             }
         }
