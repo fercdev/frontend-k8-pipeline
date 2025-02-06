@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: mi-web-front
-          image: fercdevv/frontend-react-k8:latest
+          image: fercdevv/frontend-k8-action:latest
           ports:
             - containerPort: 80
 ---
