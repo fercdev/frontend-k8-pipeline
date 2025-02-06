@@ -39,6 +39,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build
+          path: ./build
+
+      - name: Validando ruta de carpetas..
+        run: "ls -la"
       
       - name: Contruir imagen de docker..
         run: |
