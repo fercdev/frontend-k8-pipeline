@@ -21,11 +21,23 @@ jobs:
 
       - name: Construir proyecto...
         run: npm run build
+
+      - name: Subir carpeta build como artifact
+        id: upload_artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: build/
   deploy-dockerhub:
     runs-on: ubuntu-latest
     steps:
       - name: Clonar repositorio
         uses: actions/checkout@v4
+
+      - name: Descargar build artifact..
+        uses: actions/download-artifact@v4
+        with:
+          name: build
       
       - name: Contruir imagen de docker..
         run: |
