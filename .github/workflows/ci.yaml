@@ -29,6 +29,7 @@ jobs:
           name: build
           path: build/
   deploy-dockerhub:
+    needs: install-build
     runs-on: ubuntu-latest
     steps:
       - name: Clonar repositorio
@@ -53,6 +54,7 @@ jobs:
         run: |
           docker push fercdevv/frontend-k8-action:latest
   deploy-k8:
+    needs: deploy-dockerhub
     runs-on: ubuntu-latest
     steps:
       - name: Clonar repositorio
